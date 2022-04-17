@@ -1,69 +1,101 @@
+# Load packages
 library(tidyverse)
-library(plotly)
-library(chilemapas)
 library(shiny)
 library(shinythemes)
+library(readxl)
 
-# Define server logic required to draw a histogram
+
+# Prepare data
+constituyentes <- read_excel("constituyentes.xlsx")
+
+datos <- read_excel("constituyentes.xlsx", sheet = 2)
+
+datos <- datos %>%
+    mutate(region = factor(region, levels = c("Arica y Parinacota",
+                                              "Tarapaca",
+                                              "Antofagasta",
+                                              "Atacama",
+                                              "Coquimbo",
+                                              "Valparaiso",
+                                              "Metropolitana",
+                                              "Libertador General Bernardo O'Higgins",
+                                              "Maule",
+                                              "Nuble",
+                                              "Biobío",
+                                              "Araucanía",
+                                              "Los Ríos",
+                                              "Los Lagos",
+                                              "Aysen del General Carlos Ibanez del Campo",
+                                              "Magallanes y de la Antartica Chilena",
+                                              "Escaños reservados")),
+           bloque = factor(bloque, levels = c("Chile Digno",
+                                              "Movimientos Sociales Constituyentes",
+                                              "Pueblo Constituyente",
+                                              "Frente Amplio",
+                                              "Colectivo Socialista",
+                                              "Pueblos Indígenas",
+                                              "Independientes No Neutrales",
+                                              "Colectivo del Apruebo",
+                                              "Vamos por Chile",
+                                              "Sin Bloque")))
+
+constituyentes <- constituyentes %>% mutate(fecha = as.Date(constituyentes$fecha), voto = factor(voto, levels = c("A favor", "Abstención", "En contra")))
+
+# Define server
 shinyServer(function(input, output) {
-    df <- reactive(filter(constituyentes, materia==input$materia ))
-    mapa <- reactive(constituyentes %>%
-                         select(materia, region,codigo_distrito = distrito, voto) %>%
-                         filter(materia == input$materia,
-                                region %in% c(input$region)) %>%
-                         group_by(region,codigo_distrito, voto) %>%
-                         summarise(frecuencia = n()) %>%
-                         mutate(porcentaje = frecuencia/sum(frecuencia)*100) %>% 
-                         left_join(distritos, by = "codigo_distrito") %>%
-                         drop_na())
-    tabla <- reactive(constituyentes %>%
-                          select(region, nombre, apellido, lista, partido, distrito, materia, voto) %>%
-                          filter(materia == input$materia,
-                                 region %in% c(input$region)))
-    output$detalle <- renderTable(df() %>% select(detalle) %>% head(1))
-    output$plot <- renderPlotly(ggplotly(
+    
+    const1 <- reactive({
+        filter(constituyentes, fecha== input$fecha)
+    })
+    observeEvent(const1(), {
+        choices <- unique(const1()$tema)
+        updateSelectInput(inputId = "tema", choices = choices) 
+    })
+    
+    df <- reactive(filter(const1(), tema %in% c(input$tema)))
+    
+    output$detalle <- renderText(as.character(df() %>% select(detalle) %>% head(1)))
+    
+    output$tabla1 <- renderTable(
         df() %>%
             drop_na(voto) %>%
             group_by(voto) %>%
-            summarise(frecuencia = n()) %>%
-            mutate(porcentaje = frecuencia/sum(frecuencia)*100) %>%
-            ggplot(aes(x = voto, y = frecuencia, fill = voto, text = paste0("Opción: ", voto,
-                                                                            "<br>Número de votos: ", frecuencia,
-                                                                            "<br>Porcentaje: ", round(porcentaje), "%"))) +
-            geom_col() +
-            labs(title = "Resultados de la Votación",
-                 y = "N° de votos",
-                 x = "Opciones") +
-            scale_fill_brewer(palette = "YlOrRd", direction = -1) +
-            theme_bw(),
-        tooltip="text") %>% layout(showlegend = T))
-    output$listas <- renderPlotly(ggplotly(
+            summarise(n = n()) %>%
+            mutate("%" = n/sum(n) * 100) %>%
+            janitor::adorn_totals("row")
+    )
+    
+    output$tabla2 <- function(){
         df() %>%
-            drop_na(voto) %>%
-            group_by(bloque, voto) %>%
-            summarise(frecuencia = n()) %>%
-            mutate(porcentaje = frecuencia/sum(frecuencia)*100) %>%
-            ggplot(aes(x = voto, y = frecuencia, fill = voto, text = paste0("Opción: ", voto,
-                                                                            "<br>Número de votos: ", frecuencia,
-                                                                            "<br>Porcentaje: ", round(porcentaje), "%"))) +
-            geom_col() +
-            facet_wrap(~ bloque, nrow = 2) +
-            labs(title = "Resultados de la votación por bloque político",
-                 y = "N° de votos",
-                 x = "Opciones") +
-            scale_fill_brewer(palette = "YlOrRd", direction = -1) +
-            theme_bw(),
-        tooltip="text") %>% layout(showlegend = FALSE))
-    output$mapa <- renderPlotly({ggplotly(
-        ggplot(mapa()) +
-            geom_sf(aes(fill = round(porcentaje), geometry = geometry, text = paste0("Región: ", region,
-                                                                                     "<br>Distrito: ", codigo_distrito,
-                                                                                     "<br>Porcentaje de votos a favor: ", round(porcentaje), "%"))) +
-            labs(fill = "% de de votos a favor") +
-            scale_fill_gradient(low="yellow", high="red", limits=c(0, 100)) +
-            theme_void(), tooltip="text")
+            left_join(datos, by = "nombre") %>%
+            select(input$grupo, voto) %>%
+            table() %>%
+            addmargins(1) %>%
+            kableExtra::kable() %>%
+            kableExtra::kable_styling("striped", full_width = F)
+    }
+    
+    output$plot1 <- renderPlot(
+        plot(as_factor(df()$voto),
+             col = c("red", "orange", "yellow"),
+             ylab = "Número de votos")
+        )
+    
+    output$plot2 <- renderPlot({
+        
+        grafico <- datos %>%
+            left_join(df(), by = "nombre") %>%
+            select(voto, grupo = input$grupo) %>%
+            table()
+        
+        barplot(grafico, col = c("red", "orange", "yellow"))
+        
     })
     
-    output$tabla <- renderDataTable(tabla(),options = list(
-        pageLength = 10))
+    output$micro <- renderTable(
+        datos %>%
+            left_join(df(), by = "nombre") %>%
+            select(nombre, región = region, distrito, lista, partido, bloque, voto)
+    )
+    
 })
