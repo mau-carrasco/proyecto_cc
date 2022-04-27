@@ -6,9 +6,9 @@ library(readxl)
 
 
 # Prepare data
-constituyentes <- read_excel("constituyentes.xlsx")
+constituyentes <- readRDS("constituyentes.rds")
 
-datos <- read_excel("constituyentes.xlsx", sheet = 2)
+datos <- readRDS("datos.rds")
 
 datos <- datos %>%
     mutate(region = factor(region, levels = c("Arica y Parinacota",
@@ -76,9 +76,16 @@ shinyServer(function(input, output) {
     }
     
     output$plot1 <- renderPlot(
-        plot(as_factor(df()$voto),
-             col = c("red", "orange", "yellow"),
-             ylab = "Número de votos")
+        df() %>%
+            count(voto) %>%
+            mutate(prop = n/sum(n)*100) %>%
+            ggplot(aes(x = voto,
+                       y = n,
+                       fill = voto)) +
+            geom_col(color = "black") +
+            scale_fill_manual(values = c("red", "orange", "yellow")) +
+            theme_minimal() +
+            theme(legend.position = "none")
         )
     
     output$plot2 <- renderPlot({
@@ -86,9 +93,24 @@ shinyServer(function(input, output) {
         grafico <- datos %>%
             left_join(df(), by = "nombre") %>%
             select(voto, grupo = input$grupo) %>%
-            table()
+            group_by(grupo, voto) %>%
+            summarise(n = n()) %>%
+            drop_na() %>%
+            mutate(prop = n/sum(n)*100)
         
-        barplot(grafico, col = c("red", "orange", "yellow"))
+        grafico %>%
+            mutate(grupo = fct_reorder(grupo, desc(grupo))) %>%
+            ggplot(aes(x = grupo,
+                       y = n,
+                       fill = voto)) +
+            geom_col(color = "black") +
+            scale_fill_manual(values = c("red", "orange", "yellow")) +
+            labs(x = "") +
+            coord_flip() +
+            theme_minimal() +
+            theme(legend.position = "top",
+                  legend.title = element_blank())
+            
         
     })
     

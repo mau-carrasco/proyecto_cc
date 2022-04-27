@@ -5,7 +5,7 @@ library(shinythemes)
 library(readxl)
 
 # Prepare data
-constituyentes <- read_excel("constituyentes.xlsx")
+constituyentes <- readRDS("constituyentes.rds")
 
 constituyentes <- constituyentes %>% mutate(fecha = as.Date(constituyentes$fecha), voto = factor(voto, levels = c("A favor", "Abstención", "En contra")))
 
@@ -24,11 +24,11 @@ shinyUI(navbarPage(
                                         p("En este sitio web podrás visualizar y analizar los resultados de las votaciones celebradas en el pleno de la Convención Constituional de Chile."),
                                         p("Cada semana, nuestro equipo realiza un análisis de contigencia sobre los principales hechos ocurridos al interior de la Convención Constitucional, para informar adecuada y prontamente a los usuarios de la plataforma acerca de los avances en materia de redacción y sanción de normas constitucionales."),
                                         p("Para conocer en detalle lo ocurrido al interior de la Convención Constitucional durante la última semana, puedes ingresar gratuitamente a la bitácora del convencional constituyente, Fernando Atria."),
-                                        p("Esta semana, Fernando Atria analiza las mentiras y la campaña de desinformación orquestada por los sectores que apuestan por el rechazo de la propuesta constitucional que elabora la Convención.")
+                                        p("Esta semana, Fernando Atria analiza las normas que fueron aprobadas por el pleno de la CC durante la semana pasada y que formarán parte del borrador de la propuesta constitucional que será sometida a plebiscito en septiebre de este año.")
                         )),
                         fluidRow(column(12,
                                         align = "center",
-                                        HTML('<iframe width="90%" height = "500" src="https://www.youtube.com/embed/bLhoMcrAS44" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                        HTML('<iframe width="90%" height = "500" src="https://www.youtube.com/embed/r1myfY9K4iY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                         )),
                         br(),
                         br(),
@@ -53,7 +53,7 @@ shinyUI(navbarPage(
                                      selectInput("fecha",
                                                  "Fecha",
                                                  choice = unique(constituyentes$fecha),
-                                                 selected = "2022-04-05"),
+                                                 selected = "2022-04-26"),
                                      selectInput("tema",
                                                  "Tema de votación",
                                                  unique(constituyentes$tema),
