@@ -83,7 +83,7 @@ shinyServer(function(input, output) {
                        y = n,
                        fill = voto)) +
             geom_col(color = "black") +
-            scale_fill_manual(values = c("red", "orange", "yellow")) +
+            scale_fill_manual(values = c("#ADD8E6", "seagreen1", "#836FFF")) +
             theme_minimal() +
             theme(legend.position = "none")
         )
@@ -104,7 +104,7 @@ shinyServer(function(input, output) {
                        y = n,
                        fill = voto)) +
             geom_col(color = "black") +
-            scale_fill_manual(values = c("red", "orange", "yellow")) +
+            scale_fill_manual(values = c("#ADD8E6", "seagreen1", "#836FFF")) +
             labs(x = "") +
             coord_flip() +
             theme_minimal() +
@@ -118,6 +118,33 @@ shinyServer(function(input, output) {
         datos %>%
             left_join(df(), by = "nombre") %>%
             select(nombre, región = region, distrito, lista, partido, bloque, voto)
+    )
+    
+    output$entrada1 <- renderPlot(
+        constituyentes %>%
+            filter(tema == "Principios Constitucionales, Democracia, Nacionalidad y Ciudadanía (tercer informe): 8.- Votación separada del inciso primero del artículo 3") %>%
+            left_join(datos) %>%
+            group_by(bloque, voto) %>%
+            summarise(n = n()) %>%
+            drop_na() %>%
+            mutate(prop = round(n/sum(n)*100, 1)) %>%
+            ggplot(aes(x = voto, y = n, fill = voto, label = paste0(prop, "%"))) +
+            geom_col(position = "dodge",
+                     color = "black") +
+            geom_text(position = position_dodge(0.9),
+                      size = 3,
+                      vjust = 0) +
+            scale_fill_manual(values = c("#ADD8E6", "seagreen1", "#836FFF")) +
+            facet_wrap(~bloque) +
+            labs(title = "Artículo 3.- Derecho a una vida libre de violencia de género",
+                 subtitle = "Principios Constitucionales, Democracia, Nacionalidad y Ciudadanía (tercer informe)",
+                 y = "N° de votos",
+                 x = "",
+                 caption = "Fuente: www.laconstituyente.cl") +
+            ylim(0, 40) +
+            theme_test() +
+            theme(legend.position = "top",
+                  legend.title = element_blank())
     )
     
 })

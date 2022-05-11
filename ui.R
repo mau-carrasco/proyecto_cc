@@ -23,13 +23,24 @@ shinyUI(navbarPage(
                         fluidRow(column(12,
                                         p("En este sitio web podrás visualizar y analizar los resultados de las votaciones celebradas en el pleno de la Convención Constituional de Chile."),
                                         p("Cada semana, nuestro equipo realiza un análisis de contigencia sobre los principales hechos ocurridos al interior de la Convención Constitucional, para informar adecuada y prontamente a los usuarios de la plataforma acerca de los avances en materia de redacción y sanción de normas constitucionales."),
-                                        p("Para conocer en detalle lo ocurrido al interior de la Convención Constitucional durante la última semana, puedes ingresar gratuitamente a la bitácora del convencional constituyente, Fernando Atria."),
-                                        p("Esta semana, Fernando Atria analiza las normas que fueron aprobadas por el pleno de la CC durante la semana pasada y que formarán parte del borrador de la propuesta constitucional que será sometida a plebiscito en septiebre de este año.")
                         )),
+                        h4(strong("Novedades de la última semana:")),
+                        fluidRow(column(12,
+                                        p("Esta semana, la Convención Constitucional aprobó, entre otras cosas, el derecho a una vida libre de violencia de género, con 127 votos a favor. Esta norma establece que:"),
+                                        p("´El Estado garantiza y promueve el derecho de las mujeres, niñas, diversidades y disidencias sexogenéricas a una vida libre de violencia de género en todas sus manifestaciones, tanto en el ámbito público como privado, sea que provenga de particulares, instituciones o agentes del Estado´."),
+                                        p("Sin embargo, no todas las fuerzas políticas de la convención estuvieron de acuerdo con el articulado, ya que un porcentaje importante de los miembros de la bancada de Vamos por Chile decidió rechazar la iniciativa levantada por las organizaciones feministas del país. (Ver gráfico con el detalle de la votación)"),
+                                        )),
                         fluidRow(column(12,
                                         align = "center",
-                                        HTML('<iframe width="90%" height = "500" src="https://www.youtube.com/embed/r1myfY9K4iY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
-                        )),
+                                        plotOutput("entrada1", width = "90%")
+                                        )),
+                        fluidRow(column(12,
+                                        p("Para saber más acerca de lo ocurrido durante las últimas semanas al interior de la Convención Constitucional en ésta y en otras materias de interés público, te invitamos a ver la entrevista realizada por FLACSO Chile a Fernando Atria.")
+                                        )),
+                        fluidRow(column(12,
+                                        align = "center",
+                                        HTML('<iframe width="90%" height = "500" src="https://www.youtube.com/embed/TFT1vOifePk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                        )),
                         br(),
                         br(),
                         fluidRow(
@@ -53,7 +64,7 @@ shinyUI(navbarPage(
                                      selectInput("fecha",
                                                  "Fecha",
                                                  choice = unique(constituyentes$fecha),
-                                                 selected = "2022-04-26"),
+                                                 selected = "2022-05-09"),
                                      selectInput("tema",
                                                  "Tema de votación",
                                                  unique(constituyentes$tema),
