@@ -3,6 +3,6 @@ En este repositorio github encontrarás las bases de datos y los códigos utiliz
 
 En el archivo ui.R encontrarás la codificación de la interfaz de usuario de la app web **LaConstituyente.CL** , y en el archivo server.R encontrarás la codificación del sistema de procesamiento y visualización de datos que sostiene esta aplicación.
 
-Por su parte, los archivos .RDS corresponden a las bases de datos con votaciones y con los datos acutalizados de las y los convencionales constituyentes.
+Por su parte, los archivos .RDS corresponden a las bases de datos con votaciones y con los datos actualizados de las y los convencionales constituyentes.
 
 Ante cualquier duda o consulta respecto a los datos y los códigos que contiene este repositorio, escríbanos a mau.carrasco@uc.cl
