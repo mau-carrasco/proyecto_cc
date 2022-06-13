@@ -3,6 +3,7 @@ library(tidyverse)
 library(shiny)
 library(shinythemes)
 library(readxl)
+library(haven)
 
 
 # Prepare data
@@ -146,5 +147,53 @@ shinyServer(function(input, output) {
             theme(legend.position = "top",
                   legend.title = element_blank())
     )
+    
+    output$constituyentes_sav <- downloadHandler(
+        filename = function() {
+            paste0("constituyentes.sav")
+        },
+        content = function(file) {
+            haven::write_sav(datos, file)
+        })
+    
+    output$constituyentes_dta <- downloadHandler(
+        filename = function() {
+            paste0("constituyentes.dta")
+        },
+        content = function(file) {
+            haven::write_dta(datos, file)
+        })
+    
+    output$constituyentes_rds <- downloadHandler(
+        filename = function() {
+            paste0("constituyentes.rds")
+        },
+        content = function(file) {
+            readr::write_rds(datos, file)
+        })
+    
+    output$votos_sav <- downloadHandler(
+        filename = function() {
+            paste0("votos.sav")
+        },
+        content = function(file) {
+            haven::write_sav(constituyentes, file)
+        })
+    
+    output$votos_dta <- downloadHandler(
+        filename = function() {
+            paste0("votos.dta")
+        },
+        content = function(file) {
+            haven::write_dta(constituyentes, file)
+        })
+    
+    output$votos_rds <- downloadHandler(
+        filename = function() {
+            paste0("votos.rds")
+        },
+        content = function(file) {
+            readr::write_rds(constituyentes, file)
+        })
     
 })

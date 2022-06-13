@@ -19,28 +19,38 @@ shinyUI(navbarPage(
                ),
                theme = shinytheme("simplex"),
                tabPanel("Novedades",
-                        h4(strong("Bienvenidos y bienvenidas a LaConstituyente.CL")),
-                        fluidRow(column(12,
-                                        p("En este sitio web podrás visualizar y analizar los resultados de las votaciones celebradas en el pleno de la Convención Constituional de Chile."),
-                                        p("Cada semana, nuestro equipo realiza un análisis de contigencia sobre los principales hechos ocurridos al interior de la Convención Constitucional, para informar adecuada y prontamente a los usuarios de la plataforma acerca de los avances en materia de redacción y sanción de normas constitucionales."),
-                        )),
                         h4(strong("Novedades de la última semana:")),
                         fluidRow(column(12,
-                                        p("Esta semana, la Convención Constitucional aprobó, entre otras cosas, el derecho a una vida libre de violencia de género, con 127 votos a favor. Esta norma establece que:"),
-                                        p("´El Estado garantiza y promueve el derecho de las mujeres, niñas, diversidades y disidencias sexogenéricas a una vida libre de violencia de género en todas sus manifestaciones, tanto en el ámbito público como privado, sea que provenga de particulares, instituciones o agentes del Estado´."),
-                                        p("Sin embargo, no todas las fuerzas políticas de la convención estuvieron de acuerdo con el articulado, ya que un porcentaje importante de los miembros de la bancada de Vamos por Chile decidió rechazar la iniciativa levantada por las organizaciones feministas del país. (Ver gráfico con el detalle de la votación)"),
+                                        p("En sus últimas siete semanas de funcionamiento las comisiones que componen la Convención Constitucional ya alistan los últimos detalles de la propuesta que deberán presentar a la ciudadanía y el cierre de su trabajo, el que deberá culminar el próximo 5 de julio con la entrega del borrador final."),
                                         )),
-                        fluidRow(column(12,
-                                        align = "center",
-                                        plotOutput("entrada1", width = "90%")
+                        fluidRow(column(6,
+                                        strong("Comisión Preámbulo:"),
+                                        p("Una de las comisiones más avanzadas es la de Preámbulo. Este jueves, los integrantes de la instacia despacharon al pleno la propuesta de introducción de la nueva Constitución, cuyos párrafos fueron redactados por un grupo de nueve convencionales."),
+                                        p("La propuesta es la siguiente:"),
+                                        p(align = "center", em("<<Nosotras y nosotros, el pueblo de Chile, conformado por diversas naciones, nos otorgamos libremente esta Constitución, acordada en un proceso participativo, paritario y democrático.")),
+                                        p(align = "center", em("Considerando los dolores del pasado y tras un estallido social, enfrentamos las injusticias y demandas históricas con la fuerza de la juventud, para asumir esta vía institucional a través de una Convención Constitucional ampliamente representativa.")),
+                                        p(align = "center", em("Con ello, hemos decidido mirar hacia el futuro con esperanza y cambiar nuestro destino sin importar el origen, condición o creencias de cada cual; para construir una sociedad justa, consciente de su relación indisoluble con la naturaleza amenazada por la crisis climática, que promueva una cultura de paz y diálogo, con un compromiso profundo por los Derechos Humanos, la justicia, igualdad y libertad.")),
+                                        p(align = "center", em("De esta manera, en ejercicio del poder constituyente, adoptamos la siguiente Constitución Política de la República de Chile.>>")),
+                                        ),
+                                 column(6,
+                                        strong("Comisión de normas transitorias:"),
+                                        p("Este jueves la Comisión de Normas Transitorias deliberó sobre tres puntos controversiales: el quórum para que el actual Congreso pueda reformar la nueva Constitución, el futuro de los senadores y la opción de que el Ejecutivo legisle vía Decretos por Fuerza de Ley."),
+                                        p("Los convencionales de la comisión aprobaron la indicación que congela el mecanismo de reforma de la eventual nueva Constitución hasta 2026, fijando un quórum de 2/3 para cualquier modificación que quiera hacer el actual Congreso. Además, la enmienda visada estableció que <<las normas de reforma a la Constitución establecidas en esta Constitución entrarán en vigencia el 11 de marzo de 2026.>>"),
+                                        p("Asimismo, la comisión aprobó la enmienda que pone fin al Senado en 2026 y que propone que los parlamentarios recientemente electos no se integren de manera automática a la Cámara de las Regiones. <<Todos los integrantes del Senado terminarán su mandato el 11 de marzo de 2026, independiente de la fecha de su elección>>, dice una de las indicaciones aprobadas."),
+                                        p("En cuanto a los Decretos por Fuerza de Ley Adecuatorios, dos grupos de convencionales propusieron su utilización en dos casos particulares. Uno apunta a aplicar decretos si en 18 meses no se promulga una ley integral sobre vivienda y urbanismo y el otro pretende hacer lo mismo si en dos años no se aprueban los proyectos relativos a seguridad social. Ambas propuestas serán discutidas durante las próximas semanas en la comisión.")
                                         )),
-                        fluidRow(column(12,
-                                        p("Para saber más acerca de lo ocurrido durante las últimas semanas al interior de la Convención Constitucional en ésta y en otras materias de interés público, te invitamos a ver la entrevista realizada por FLACSO Chile a Fernando Atria.")
-                                        )),
-                        fluidRow(column(12,
-                                        align = "center",
-                                        HTML('<iframe width="90%" height = "500" src="https://www.youtube.com/embed/TFT1vOifePk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
-                                        )),
+                        fluidRow(
+                          column(6,
+                                 strong("Comisión de Armonización:"),
+                                 p("Este martes la Secretaría Técnica de la comisión de Armonización elaboró una propuesta para la distribución de los 499 artículos que componen el borrador de la nueva Constitución. El documento fue visado por la instancia y, por lo tanto, se convirtió en la base sobre la que trabajarán los convencionales."),
+                                 p("Durante el martes y miércoles la comisión recibió a un grupo de expertos constitucionales que dieron sus recomendaciones sobre el texto y el proceso de armonización como insumo para la redacción de enmiendas que los convencionales podían presentar hasta las 22.00 horas de este viernes. Las indicaciones fueron votadas este sábado por la comisión."),
+                                 strong("Debate:"),
+                                 p("Las disposiciones transitorias de la Convención Constitucional han generado gran interés y discusión en la opinión pública. Esta semana, el convencional Fernando Atria fue entrevistado en CNN sobre esta y otras materias. Te invitamos a ver la entrevista para mantenerte informado y contribuir al debate público sobre la eventual nueva constitución."),
+                                 ),
+                          column(6,
+                                 HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/c4-997Zg8CI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                 )
+                        ),
                         br(),
                         br(),
                         fluidRow(
@@ -64,7 +74,7 @@ shinyUI(navbarPage(
                                      selectInput("fecha",
                                                  "Fecha",
                                                  choice = unique(constituyentes$fecha),
-                                                 selected = "2022-05-09"),
+                                                 selected = "2022-05-14"),
                                      selectInput("tema",
                                                  "Tema de votación",
                                                  unique(constituyentes$tema),
@@ -78,7 +88,8 @@ shinyUI(navbarPage(
                                                                 "Distrito" = "distrito",
                                                                 "Lista" = "lista",
                                                                 "Partido" = "partido",
-                                                                "Bloque político interno" = "bloque"))
+                                                                "Bloque político interno" = "bloque",
+                                                                "Genero" = "sexo"))
                                      ),
                         mainPanel(align="center",
                                   tabsetPanel(type = "tabs",
@@ -179,6 +190,45 @@ shinyUI(navbarPage(
                                     a("HTML", 
                                       href = "https://tender-kowalevski-7cf9ff.netlify.app/"))
                           )
+                        ),
+                        br(),
+                        br(),
+                        fluidRow(
+                          column(4,
+                                 p(align = "center",
+                                   a(img(src = "logo_casa_comun.png", height = 50, width = 100), href = "https://www.lacasacomun.cl/"))
+                          ),
+                          column(4,
+                                 p(align = "center",
+                                   a(img(src= "http://www.academia.cl/2021/admision/logo-uahc-hor.svg", height = 60, width = 175), href = "http://www.academia.cl/"))
+                          ),
+                          column(4,
+                                 p(align = "center",
+                                   a(img(src = "https://cl.boell.org/sites/default/files/2019-10/logo-boell-cl-en-city.svg", height = 60, width = 175), href = "https://cl.boell.org/es"))
+                          )
+                        )
+               ),
+               tabPanel("Datos",
+                        h4(strong("Bases de datos")),
+                        p("En esta sección encontrarás la base de datos con la información de las y los convencionales constituyentes y la base de datos con las votaciones celebradas en el pleno de la Convención Constitucional."),
+                        fluidRow(
+                          column(5,
+                                 h5(strong("Base de datos con información de las y los convencionales constituyentes: ")),
+                                 strong("Base de datos:"),
+                                 p(downloadLink("constituyentes_sav", "SPSS"), " | ", downloadLink("constituyentes_dta", "STATA"), " | ", downloadLink("constituyentes_rds", "R")),
+                                 ),
+                          column(5,
+                                 h5(strong("Base de datos con información de las votaciones celebradas en el pleno de la Convención Constitucional: ")),
+                                 strong("Base de datos: "),
+                                 p(downloadLink("votos_sav", "SPSS"), " | ", downloadLink("votos_dta", "STATA"), " | ", downloadLink("votos_rds", "R")),
+                                 )
+                        ),
+                        fluidRow(
+                          column(12,
+                                 h5(strong("Normas de uso de la base de datos:")),
+                                 p("Te recordamos que el uso de estas bases de datos debe ir acompañado de la siguiente cita: "),
+                                 p("Fundación la Casa Común & Universidad Academia de Humanismo Cristiano. (2022).", em("Observatorio de la Convención Constitucional de Chile: LaConstituyen.CL."), " Disponible en: www.laconstituyente.cl")
+                                 )
                         ),
                         br(),
                         br(),
