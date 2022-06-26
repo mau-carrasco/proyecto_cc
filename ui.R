@@ -19,36 +19,19 @@ shinyUI(navbarPage(
                ),
                theme = shinytheme("simplex"),
                tabPanel("Novedades",
-                        h4(strong("Novedades de la última semana:")),
-                        fluidRow(column(12,
-                                        p("En sus últimas siete semanas de funcionamiento las comisiones que componen la Convención Constitucional ya alistan los últimos detalles de la propuesta que deberán presentar a la ciudadanía y el cierre de su trabajo, el que deberá culminar el próximo 5 de julio con la entrega del borrador final."),
-                                        )),
-                        fluidRow(column(6,
-                                        strong("Comisión Preámbulo:"),
-                                        p("Una de las comisiones más avanzadas es la de Preámbulo. Este jueves, los integrantes de la instacia despacharon al pleno la propuesta de introducción de la nueva Constitución, cuyos párrafos fueron redactados por un grupo de nueve convencionales."),
-                                        p("La propuesta es la siguiente:"),
-                                        p(align = "center", em("<<Nosotras y nosotros, el pueblo de Chile, conformado por diversas naciones, nos otorgamos libremente esta Constitución, acordada en un proceso participativo, paritario y democrático.")),
-                                        p(align = "center", em("Considerando los dolores del pasado y tras un estallido social, enfrentamos las injusticias y demandas históricas con la fuerza de la juventud, para asumir esta vía institucional a través de una Convención Constitucional ampliamente representativa.")),
-                                        p(align = "center", em("Con ello, hemos decidido mirar hacia el futuro con esperanza y cambiar nuestro destino sin importar el origen, condición o creencias de cada cual; para construir una sociedad justa, consciente de su relación indisoluble con la naturaleza amenazada por la crisis climática, que promueva una cultura de paz y diálogo, con un compromiso profundo por los Derechos Humanos, la justicia, igualdad y libertad.")),
-                                        p(align = "center", em("De esta manera, en ejercicio del poder constituyente, adoptamos la siguiente Constitución Política de la República de Chile.>>")),
-                                        ),
-                                 column(6,
-                                        strong("Comisión de normas transitorias:"),
-                                        p("Este jueves la Comisión de Normas Transitorias deliberó sobre tres puntos controversiales: el quórum para que el actual Congreso pueda reformar la nueva Constitución, el futuro de los senadores y la opción de que el Ejecutivo legisle vía Decretos por Fuerza de Ley."),
-                                        p("Los convencionales de la comisión aprobaron la indicación que congela el mecanismo de reforma de la eventual nueva Constitución hasta 2026, fijando un quórum de 2/3 para cualquier modificación que quiera hacer el actual Congreso. Además, la enmienda visada estableció que <<las normas de reforma a la Constitución establecidas en esta Constitución entrarán en vigencia el 11 de marzo de 2026.>>"),
-                                        p("Asimismo, la comisión aprobó la enmienda que pone fin al Senado en 2026 y que propone que los parlamentarios recientemente electos no se integren de manera automática a la Cámara de las Regiones. <<Todos los integrantes del Senado terminarán su mandato el 11 de marzo de 2026, independiente de la fecha de su elección>>, dice una de las indicaciones aprobadas."),
-                                        p("En cuanto a los Decretos por Fuerza de Ley Adecuatorios, dos grupos de convencionales propusieron su utilización en dos casos particulares. Uno apunta a aplicar decretos si en 18 meses no se promulga una ley integral sobre vivienda y urbanismo y el otro pretende hacer lo mismo si en dos años no se aprueban los proyectos relativos a seguridad social. Ambas propuestas serán discutidas durante las próximas semanas en la comisión.")
-                                        )),
+                        h3(strong("Novedades")),
                         fluidRow(
-                          column(6,
-                                 strong("Comisión de Armonización:"),
-                                 p("Este martes la Secretaría Técnica de la comisión de Armonización elaboró una propuesta para la distribución de los 499 artículos que componen el borrador de la nueva Constitución. El documento fue visado por la instancia y, por lo tanto, se convirtió en la base sobre la que trabajarán los convencionales."),
-                                 p("Durante el martes y miércoles la comisión recibió a un grupo de expertos constitucionales que dieron sus recomendaciones sobre el texto y el proceso de armonización como insumo para la redacción de enmiendas que los convencionales podían presentar hasta las 22.00 horas de este viernes. Las indicaciones fueron votadas este sábado por la comisión."),
-                                 strong("Debate:"),
-                                 p("Las disposiciones transitorias de la Convención Constitucional han generado gran interés y discusión en la opinión pública. Esta semana, el convencional Fernando Atria fue entrevistado en CNN sobre esta y otras materias. Te invitamos a ver la entrevista para mantenerte informado y contribuir al debate público sobre la eventual nueva constitución."),
+                          column(8,
+                                 img(src = "talleres.jpeg", height = 600, width = "100%"),
+                                 br(),
+                                 br(),
+                                 h4("Si te interesa participar en los talleres y actividades sobre la propuesta de nueva constitución, puedes inscribirte directamente ",
+                                   a("aquí", href = "https://forms.gle/RwsV2qwdWaFf3bi3A"), " o ingresando a ", a("www.lacasacomun.cl", href = "https://www.lacasacomun.cl/")),
+                                 br(),
+                                 br()
                                  ),
-                          column(6,
-                                 HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/c4-997Zg8CI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                          column(4,
+                                 HTML('<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CfKBz3Quvpb/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/CfKBz3Quvpb/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Ver esta publicación en Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/CfKBz3Quvpb/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Una publicación compartida por Fundación La Casa Común (@casacomuncl)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>>')
                                  )
                         ),
                         br(),
@@ -69,7 +52,7 @@ shinyUI(navbarPage(
                         )
                ),
                tabPanel("Votaciones",
-                        h4(strong("Votaciones celebradas en el pleno de la CC")),
+                        h3(strong("Votaciones celebradas en el pleno de la CC")),
                         sidebarPanel(align="center",
                                      selectInput("fecha",
                                                  "Fecha",
@@ -137,14 +120,14 @@ shinyUI(navbarPage(
                                   )
                         ),
                tabPanel("Análisis",
-                        h4(strong("Análisis de contingencia")),
+                        h3(strong("Análisis de contingencia")),
                         fluidRow(column(12,
                                         p("Desde", strong("laconstituyente.cl"), "nos hemos puesto el objetivo de analizar periodicamente las discusiones y votaciones más relevantes de la Convención Constitucional, tanto a nivel general como en particular, desagregando a los constituyentes en sus respectivos pactos políticos, regiones y distritos."),
                                         p("El análisis periódico de las discusiones y votaciones es realizado por un equipo de investigadores de la", strong("Fundación La Casa Común"), "y la", strong("Universidad Academia de Humanismo Cristiano,"), "que elaboran un reporte mensual, quincenal o semanal, dependiendo de la actividad de la Convención Constitucional.")
                         )),
                         fluidRow(
                           column(6,
-                                 h4(strong("Informes")),
+                                 h3(strong("Informes")),
                                  p(
                                    "Informe de ",
                                    a("las votaciones realizas en la Convención Constitucional de Chile durante sus primeros tres meses de funcionamiento", 
@@ -182,7 +165,7 @@ shinyUI(navbarPage(
                                      href = "https://goofy-einstein-d4dfd8.netlify.app/"))
                                  ),
                           column(6,
-                                 h4(strong("Reportes")),
+                                 h3(strong("Reportes")),
                                  p("[Columna] Nueva Constitución y participación ciudadana, un tremendo desafío sobretodo medioambiental: ",
                                     a("HTML", 
                                       href = "https://mystifying-jackson-5040b6.netlify.app/")),
@@ -209,7 +192,7 @@ shinyUI(navbarPage(
                         )
                ),
                tabPanel("Datos",
-                        h4(strong("Bases de datos")),
+                        h3(strong("Bases de datos")),
                         p("En esta sección encontrarás la base de datos con la información de las y los convencionales constituyentes y la base de datos con las votaciones celebradas en el pleno de la Convención Constitucional."),
                         fluidRow(
                           column(5,
@@ -227,7 +210,7 @@ shinyUI(navbarPage(
                           column(12,
                                  h5(strong("Normas de uso de la base de datos:")),
                                  p("Te recordamos que el uso de estas bases de datos debe ir acompañado de la siguiente cita: "),
-                                 p("Fundación la Casa Común & Universidad Academia de Humanismo Cristiano. (2022).", em("Observatorio de la Convención Constitucional de Chile: LaConstituyen.CL."), " Disponible en: www.laconstituyente.cl")
+                                 p("Fundación la Casa Común & Universidad Academia de Humanismo Cristiano. (2022).", em("Observatorio de la Convención Constitucional de Chile: LaConstituyente.CL."), " Disponible en: www.laconstituyente.cl")
                                  )
                         ),
                         br(),
@@ -248,7 +231,7 @@ shinyUI(navbarPage(
                         )
                ),
                tabPanel("Equipo",
-                        h4(strong("Equipo del proyecto")),
+                        h3(strong("Equipo del proyecto")),
                         fluidRow(
                           column(4,
                                  h5(strong("Coordinador del proyecto:")),
